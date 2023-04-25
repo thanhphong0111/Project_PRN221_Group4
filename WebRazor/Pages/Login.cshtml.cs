@@ -49,19 +49,28 @@ namespace WebRazor.Pages
                 return Page();
             }
 
-            Account account = context.Accounts.Include(a=>a.Customer).FirstOrDefault(u => u.Email.Equals(email));
+            Account account = context.Accounts.FirstOrDefault(u => u.Email.Equals(email));
 
-            account.Customer.Accounts = null;
-            if (account.Customer.Active == false)
+            if (account.Role == 1)// role employee
             {
-                ModelState.AddModelError("Error", "your account disabled!");
-                return Page();
+                account.Employee = context.Employees.Include(e => e.Department).FirstOrDefault(u => u.EmployeeId.Equals(account.EmployeeId));
+                account.Employee.Department.Employees = null;
+                account.Employee.Accounts = null;
+            }
+            else
+            {
+                account.Customer = context.Customers.FirstOrDefault(u => u.CustomerId.Equals(account.CustomerId));
+                account.Customer.Accounts = null;
+                if (account.Customer.Active == false)
+                {
+                    ModelState.AddModelError("Error", "your account disabled!");
+                    return Page();
+                }
             }
 
             string jsonAcount = JsonConvert.SerializeObject(account);
-
             HttpContext.Session.SetString("session", jsonAcount);
-            
+
             return RedirectToPage("/Index");
         }
     }
