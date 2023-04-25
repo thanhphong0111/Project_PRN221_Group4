@@ -29,18 +29,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Shared\_Layout.cshtml" />
     <None Include="wwwroot\fonts\ElegantIcons.svg" />
     <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\email-validation.js" />
+    <None Include="wwwroot\js\imagesloaded.pkgd.min.js" />
     <None Include="wwwroot\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\js\jquery-ui.min.js" />
+    <None Include="wwwroot\js\jquery.countdown.min.js" />
+    <None Include="wwwroot\js\jquery.dd.min.js" />
     <None Include="wwwroot\js\jquery.nice-select.min.js" />
     <None Include="wwwroot\js\jquery.slicknav.js" />
+    <None Include="wwwroot\js\jquery.zoom.min.js" />
     <None Include="wwwroot\js\main.js" />
-    <None Include="wwwroot\js\mixitup.min.js" />
     <None Include="wwwroot\js\owl.carousel.min.js" />
-    <None Include="wwwroot\js\player.js" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
