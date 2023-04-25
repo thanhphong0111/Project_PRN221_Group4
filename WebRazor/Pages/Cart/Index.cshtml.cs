@@ -49,10 +49,22 @@ namespace WebRazor.Pages.Cart
 
                 Sum += (decimal)product.UnitPrice * item.Value;
             }
-            Auth = JsonSerializer.Deserialize<Models.Account>(HttpContext.Session.GetString("CustSession"));
-            if (Auth != null)
+            var custSession = HttpContext.Session.GetString("CustSession");
+            if (custSession == null)
             {
-                Customer = await dbContext.Customers.FirstOrDefaultAsync(c => c.CustomerId.Equals(Auth.CustomerId));
+                return Redirect("/Account/Login");
+            }
+            else
+            {
+                Auth = JsonSerializer.Deserialize<Models.Account>(custSession);
+                if (Auth == null)
+                {
+                    return Redirect("/Account/Login");
+                }
+                else
+                {
+                    Customer = await dbContext.Customers.FirstOrDefaultAsync(c => c.CustomerId.Equals(Auth.CustomerId));
+                }
             }
             return Page();
         }

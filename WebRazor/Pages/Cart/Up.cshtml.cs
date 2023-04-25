@@ -30,11 +30,18 @@ namespace WebRazor.Pages.Cart
                 return Redirect("/Account/Login");
             }
 
-            Auth = JsonSerializer.Deserialize<Models.Account>(HttpContext.Session.GetString("CustSession"));
-
-            if (Auth == null)
+            var custSession = HttpContext.Session.GetString("CustSession");
+            if (custSession == null)
             {
                 return Redirect("/Account/Login");
+            }
+            else
+            {
+                Auth = JsonSerializer.Deserialize<Models.Account>(custSession);
+                if (Auth == null)
+                {
+                    return Redirect("/Account/Login");
+                }
             }
 
             Models.Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == id));
