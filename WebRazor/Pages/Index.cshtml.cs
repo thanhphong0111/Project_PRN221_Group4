@@ -8,7 +8,7 @@ namespace WebRazor.Pages
     public class IndexModel : PageModel
     {
         private readonly PRN221DBContext dbContext;
-
+        //qqqq
         public IndexModel(PRN221DBContext dbContext)
         {
             this.dbContext = dbContext;
