@@ -50,7 +50,7 @@ namespace WebRazor.Pages
                     .GroupBy(d => d.ProductId)
                     .Select(g => new { ProductId = g.Key, Sum = g.Sum(d => d.Quantity) })
                     .OrderByDescending(o => o.Sum)
-                    .Take(4);
+                    .Take(10);
 
                 BestSaleProducts = new List<Models.Product>();
                 foreach (var id in idsBestSale)
@@ -59,7 +59,7 @@ namespace WebRazor.Pages
                 }
 
                 NewProducts = dbContext.Products
-                    .OrderByDescending(p => p.ProductId).Take(4).ToList();
+                    .OrderByDescending(p => p.ProductId).Take(10).ToList();
 
             }
 
