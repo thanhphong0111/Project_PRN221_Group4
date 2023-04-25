@@ -8,11 +8,13 @@ namespace WebRazor.Pages
     public class IndexModel : PageModel
     {
         private readonly PRN221DBContext dbContext;
-
+        //qqqq
         public IndexModel(PRN221DBContext dbContext)
         {
             this.dbContext = dbContext;
         }
+        [BindProperty(SupportsGet = true)]
+        public int categoryChoose { get; set; }
         public Dictionary<Models.Product, int> Cart { get; set; } = new Dictionary<Models.Product, int>();
         [BindProperty]
         public List<Category> Categories { get; set; }
@@ -48,7 +50,7 @@ namespace WebRazor.Pages
                     .GroupBy(d => d.ProductId)
                     .Select(g => new { ProductId = g.Key, Sum = g.Sum(d => d.Quantity) })
                     .OrderByDescending(o => o.Sum)
-                    .Take(4);
+                    .Take(10);
 
                 BestSaleProducts = new List<Models.Product>();
                 foreach (var id in idsBestSale)
@@ -57,7 +59,7 @@ namespace WebRazor.Pages
                 }
 
                 NewProducts = dbContext.Products
-                    .OrderByDescending(p => p.ProductId).Take(4).ToList();
+                    .OrderByDescending(p => p.ProductId).Take(10).ToList();
 
             }
 
