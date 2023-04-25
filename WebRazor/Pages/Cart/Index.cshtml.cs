@@ -9,7 +9,7 @@ namespace WebRazor.Pages.Cart
 {
     public class IndexModel : PageModel
     {
-        public Dictionary<Product, int> Cart { get; set; } = new Dictionary<Product, int>();
+        public Dictionary<Models.Product, int> Cart { get; set; } = new Dictionary<Models.Product, int>();
 
         public Account Auth { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -43,7 +43,7 @@ namespace WebRazor.Pages.Cart
 
             foreach (var item in list)
             {
-                Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
+                Models.Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
 
                 Cart.Add(product, item.Value);
 
@@ -75,7 +75,7 @@ namespace WebRazor.Pages.Cart
 
             foreach (var item in list)
             {
-                Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
+                Models.Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
 
                 Cart.Add(product, item.Value);
 
@@ -117,10 +117,10 @@ namespace WebRazor.Pages.Cart
                 await dbContext.Orders.AddAsync(order);
                 await dbContext.SaveChangesAsync();
                 order = await dbContext.Orders.OrderBy(o => o.OrderDate).LastOrDefaultAsync();
-                Dictionary<Product, OrderDetail> listProducts = new Dictionary<Product, OrderDetail>();
+                Dictionary<Models.Product, OrderDetail> listProducts = new Dictionary<Models.Product, OrderDetail>();
                 foreach (var item in list)
                 {
-                    Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
+                    Models.Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == item.Key));
                     OrderDetail od = new OrderDetail();
                     od.OrderId = order.OrderId;
                     od.ProductId = product.ProductId;

@@ -37,7 +37,7 @@ namespace WebRazor.Pages.Cart
                 return Redirect("/Account/Login");
             }
 
-            Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == id));
+            Models.Product product = (await dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == id));
 
 
             try
