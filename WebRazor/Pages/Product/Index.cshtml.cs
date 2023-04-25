@@ -38,6 +38,7 @@ namespace WebRazor.Pages.Product
                     .Where(p => p.CategoryId == Int32.Parse(CatId))
                     .ToList();
             }
+            Products = products;
         }
     }
 }
