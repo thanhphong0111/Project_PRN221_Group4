@@ -13,8 +13,6 @@ namespace WebRazor.Pages
         {
             this.dbContext = dbContext;
         }
-        [BindProperty(SupportsGet = true)]
-        public int categoryChoose { get; set; }
         public Dictionary<Models.Product, int> Cart { get; set; } = new Dictionary<Models.Product, int>();
         [BindProperty]
         public List<Category> Categories { get; set; }
