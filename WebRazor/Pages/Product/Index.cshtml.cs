@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WebRazor.Models;
 
@@ -26,19 +27,51 @@ namespace WebRazor.Pages.Product
         [FromQuery(Name = "id")]
         public string CatId { get; set; }
 
-        public void OnGet()
+
+        public async Task OnGetAsync()
         {
             Categories = dbContext.Categories.ToList();
-
-            var products = dbContext.Products.ToList();
-
+            var products = dbContext.Products;
             if (CatId != null)
             {
-                Products = dbContext.Products
+                Products = await products
                     .Where(p => p.CategoryId == Int32.Parse(CatId))
-                    .ToList();
+                    .ToListAsync();
             }
-            Products = products;
+            else
+            {
+                Products = await products.ToListAsync();
+            }
+
         }
+        public async Task OnPostAsync()
+        {
+            string search = Request.Form["search"];
+            ViewData["search"] = search;
+            Categories = dbContext.Categories.ToList();
+
+            var products = dbContext.Products;
+            if (!string.IsNullOrEmpty(search))
+            {
+                Products = await products.Where(p => p.ProductName == search).ToListAsync();
+            }
+            else if (CatId != null)
+            {
+                Products = await products
+                    .Where(p => p.CategoryId == Int32.Parse(CatId))
+                    .ToListAsync();
+            }
+            else if (!string.IsNullOrEmpty(search) && CatId != null)
+            {
+                Products = await products.Where(p => p.CategoryId == Int32.Parse(CatId) && p.ProductName == search).ToListAsync();
+            }
+            else
+            {
+                Products = await products.ToListAsync();
+            }
+
+        }
+
+
     }
 }
