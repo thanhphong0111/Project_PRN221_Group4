@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Documents\\FPT\\projectPrn221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj": {}
+    "D:\\HocKiBay\\ProjectPRN221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj": {}
   },
   "projects": {
-    "C:\\Documents\\FPT\\projectPrn221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj": {
+    "D:\\HocKiBay\\ProjectPRN221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Documents\\FPT\\projectPrn221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj",
+        "projectUniqueName": "D:\\HocKiBay\\ProjectPRN221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj",
         "projectName": "WebRazor",
-        "projectPath": "C:\\Documents\\FPT\\projectPrn221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj",
-        "packagesPath": "C:\\Users\\dang.tran2\\.nuget\\packages\\",
-        "outputPath": "C:\\Documents\\FPT\\projectPrn221\\Project_PRN221_Group4\\WebRazor\\obj\\",
+        "projectPath": "D:\\HocKiBay\\ProjectPRN221\\Project_PRN221_Group4\\WebRazor\\WebRazor.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\HocKiBay\\ProjectPRN221\\Project_PRN221_Group4\\WebRazor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dang.tran2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,22 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EPPlus": {
-              "target": "Package",
-              "version": "[6.1.0, )"
-            },
-            "IronPdf": {
-              "target": "Package",
-              "version": "[2022.11.10347, )"
-            },
-            "Microsoft.AspNetCore.Authentication": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[6.0.10, )"
-            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -72,17 +56,13 @@
               "target": "Package",
               "version": "[6.0.10, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[6.0.0, )"
             },
-            "Select.HtmlToPdf.NetCore": {
+            "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[22.1.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.0.8, )"
             }
           },
           "imports": [
@@ -104,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

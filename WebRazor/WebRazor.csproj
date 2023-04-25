@@ -11,40 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\fonts\ElegantIcons.svg" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\fonts\themify.svg" />
-    <None Include="wwwroot\js\bootstrap.min.js" />
-    <None Include="wwwroot\js\imagesloaded.pkgd.min.js" />
-    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
-    <None Include="wwwroot\js\jquery-ui.min.js" />
-    <None Include="wwwroot\js\jquery.countdown.min.js" />
-    <None Include="wwwroot\js\jquery.dd.min.js" />
-    <None Include="wwwroot\js\jquery.nice-select.min.js" />
-    <None Include="wwwroot\js\jquery.slicknav.js" />
-    <None Include="wwwroot\js\jquery.zoom.min.js" />
-    <None Include="wwwroot\js\main.js" />
-    <None Include="wwwroot\js\owl.carousel.min.js" />
-    <None Include="wwwroot\Source\bootstrap-4.4.1-dist.zip" />
-    <None Include="wwwroot\Source\elegant_font.zip" />
-    <None Include="wwwroot\Source\font-awesome-4.7.0.zip" />
-    <None Include="wwwroot\Source\jquery-nice-select-1.1.0.zip" />
-    <None Include="wwwroot\Source\jquery-ui-1.12.1.zip" />
-    <None Include="wwwroot\Source\jQuery.countdown-master.zip" />
-    <None Include="wwwroot\Source\Magnific-Popup-master.zip" />
-    <None Include="wwwroot\Source\OwlCarousel2-2.3.4.zip" />
-    <None Include="wwwroot\Source\sass.zip" />
-    <None Include="wwwroot\Source\SlickNav-master.zip" />
-    <None Include="wwwroot\Source\themify-icons-font.zip" />
-    <None Include="wwwroot\Source\zoom-master.zip" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EPPlus" Version="6.1.0" />
-    <PackageReference Include="IronPdf" Version="2022.11.10347" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -54,9 +20,91 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
-    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="22.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="6.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Shared\_Layout.cshtml" />
+    <None Include="wwwroot\fonts\ElegantIcons.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\js\jquery.nice-select.min.js" />
+    <None Include="wwwroot\js\jquery.slicknav.js" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\js\mixitup.min.js" />
+    <None Include="wwwroot\js\owl.carousel.min.js" />
+    <None Include="wwwroot\js\player.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\sass\style.scss" />
+    <None Include="wwwroot\sass\_anime-details.scss" />
+    <None Include="wwwroot\sass\_anime-watching.scss" />
+    <None Include="wwwroot\sass\_base.scss" />
+    <None Include="wwwroot\sass\_blog-details.scss" />
+    <None Include="wwwroot\sass\_blog.scss" />
+    <None Include="wwwroot\sass\_breadcrumb.scss" />
+    <None Include="wwwroot\sass\_footer.scss" />
+    <None Include="wwwroot\sass\_header.scss" />
+    <None Include="wwwroot\sass\_hero.scss" />
+    <None Include="wwwroot\sass\_login.scss" />
+    <None Include="wwwroot\sass\_mixins.scss" />
+    <None Include="wwwroot\sass\_product.scss" />
+    <None Include="wwwroot\sass\_responsive.scss" />
+    <None Include="wwwroot\sass\_signup.scss" />
+    <None Include="wwwroot\sass\_variable.scss" />
+    <None Include="wwwroot\Source\bootstrap-4.4.1-dist.zip" />
+    <None Include="wwwroot\Source\elegant_font.zip" />
+    <None Include="wwwroot\Source\font-awesome-4.7.0.zip" />
+    <None Include="wwwroot\Source\jquery-nice-select-1.1.0.zip" />
+    <None Include="wwwroot\Source\OwlCarousel2-2.3.4.zip" />
+    <None Include="wwwroot\Source\plyr-master.zip" />
+    <None Include="wwwroot\Source\sass.zip" />
+    <None Include="wwwroot\Source\SlickNav-master.zip" />
   </ItemGroup>
 
 </Project>
