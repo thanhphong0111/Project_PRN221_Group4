@@ -1,0 +1,209 @@
+﻿@page
+@model WebRazor.Pages.ProfileModel
+@using Newtonsoft.Json;
+@using WebRazor.Models;
+@{
+    Layout = "_Layout3";
+    ViewData["Title"] = "Your Profile";
+}
+
+@{
+    var jsonAccount = HttpContext.Session.GetString("session");
+    Account account = JsonConvert.DeserializeObject<Account>(jsonAccount);
+}
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="/Index">
+                        <img src="img/logo.png" alt="img/logo.png">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/Index">Home</a></li>
+                            <li><a href="/Categories">Shop</a></li>
+                            <li><a href="/Blog">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="header__right">
+                    <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                    @if (account != null)
+                    {
+                        <a href="/Profile"><span class="icon_profile"></span></a>
+                    }
+                    else
+                    {
+                        <a href="/Login">Login Now</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" src="http://cdn.onlinewebfonts.com/svg/img_264570.png">
+                <span class="font-weight-bold">@account.Email</span>
+                <span> </span>
+                <a href="/Logout"><button class="btn btn-danger m-3">Log Out</button></a>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <form method="post">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                        @if(account.Role == 1)
+                        {
+                            <input type="text" name="userId" class="form-control" value="@account.Employee.EmployeeId" hidden>
+                        }
+                        else{
+                            <input type="text" name="userId" class="form-control" value="@account.Customer.CustomerId" hidden>
+                           }
+                           
+                    </div>
+                    @if (account.Role == 1)
+                    {
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Last Name</label>
+                                <input type="text" name="lname" class="form-control" placeholder="Last Name" value="@account.Employee.LastName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">First Name</label>
+                                <input type="text" name="fname" class="form-control" placeholder="First Name" value="@account.Employee.FirstName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Department Name</label>
+                                <input type="text" name="department" class="form-control" placeholder="Department Name" value="@account.Employee.Department.DepartmentName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Address</label>
+                                <input type="text" name="address" class="form-control" placeholder="Address" value="@account.Employee.Address">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Title Name</label>
+                                <input type="text" name="title" class="form-control" placeholder="Title Name" value="@account.Employee.Title">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Title Of Courtesy</label>
+                                <input type="text" name="titlecour" class="form-control" placeholder="Title Of Courtesy" value="@account.Employee.TitleOfCourtesy">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="labels">Email</label>
+                                <input type="text" name="email" class="form-control" placeholder="enter email id" value="@account.Email" readonly>
+                            </div>
+       
+                        </div>
+                    }else{
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Company Name</label>
+                            <input type="text" name="company" class="form-control" placeholder="Company name" value="@account.Customer.CompanyName">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Contact Name</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Contact Name" value="@account.Customer.ContactName">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Contact Title</label>
+                            <input type="text" name="title" class="form-control" placeholder="Contact Title" value="@account.Customer.ContactTitle">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Address</label>
+                            <input type="text" name="address" class="form-control" placeholder="Address" value="@account.Customer.Address">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Email</label>
+                            <input type="text" name="email" class="form-control" placeholder="enter email id" value="@account.Email" readonly>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Created Date</label>
+                            <input type="text" class="form-control" value="@account.Customer.CreateDate" readonly>
+                        </div>
+                    </div>
+                    }
+                    <div class="mt-5 text-center">
+                        <input class="btn btn-primary profile-button" type="submit" value="Save Profile" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <form id="changePassForm" onsubmit="return reconfirm()" method="post">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span>Change Password</span>
+                    </div><br>
+                    <div class="col-md-12">
+                        <label class="labels">Username</label>
+                        <input type="text" class="form-control" name="username" value="@account.Email" readonly>
+                    </div> <br>
+                    <div class="col-md-12">
+                        <label class="labels">New Password</label>
+                        <input type="text" class="form-control" name="password" placeholder="New Password" value="">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <input type="submit" class="btn btn-success m-3" name="changePassword" value="changePassword" />
+                    </div><br>.
+                </form>
+            </div>
+     @*       @if (userData.RoleId == 1)
+            {
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span>Admin Privileges</span>
+                    </div><br>
+                    <div class="col-md-12">
+                        <a href="/Management/Users"><button class="btn btn-warning mb-1">User Management</button></a>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="/Management/Games"><button class="btn btn-dark mt-1">Game Management</button></a>
+                    </div>
+                </div>
+            }*@
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function reconfirm() {
+      let password = prompt("Please enter your old password");
+        if (password == @account.Password) {
+            if (document.getElementsByClassName("password")[0].value.length < 6) {
+            alert("New password length minimum 6 characters");
+            return true;
+        }
+        return true;
+      }
+      else{
+        alert("Wrong password. Change will not be saved")
+        return false;
+      }
+    }
+</script>

@@ -1,0 +1,143 @@
+﻿@page
+@model WebRazor.Pages.LoginModel
+
+@{
+    Layout = "_Layout3";
+    ViewData["Title"] = "Login";
+}
+
+@{
+    var errorMessage = (String)ViewData["message"];   
+}
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+<header style="background-color:white;" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="/Index">
+                        <img src="img1/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/Index">Homepage</a></li>
+                            <li><a href="/Register">Register</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="header__right">
+                    <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                    <a href="/Login">Login Now</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
+
+<!-- Normal Breadcrumb Begin -->
+<section class="normal-breadcrumb set-bg" data-setbg="img1/c.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="normal__breadcrumb__text">
+                    <h2>Login</h2>
+                    <p>Welcome to Cóp Phê Store.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Normal Breadcrumb End -->
+
+@*@if(errorMessage.Length > 0){
+    <div class="alert alert-danger alert-dismissible">
+    @errorMessage
+    </div>
+}*@
+
+<!-- Login Section Begin -->
+<section class="login spad">
+    <div class="container">
+        <div class="row">
+            <div style="margin-bottom:20px;" class="col-lg-6">
+                <div class="login__form">
+                    <h3>Login</h3> <span asp-validation-for="Error" style="color:red;"></span>
+                    <form method="post">
+                        
+                        <div class="input__item">
+                            <input type="text" name="username" placeholder="Username">
+                            <span class="icon_mail"></span>
+                        </div>
+                        <div class="input__item">
+                            <input type="password" name="password" placeholder="Password">
+                            <span class="icon_lock"></span>
+                        </div>
+                        <input type="submit" class="site-btn" value="Login Now"/>
+                    </form>
+                    <a href="#" class="forget_pass">Forgot Your Password?</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login__register">
+                    <h3>Dont’t Have An Account?</h3>
+                    <a href="/Register" class="primary-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Login Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="page-up">
+        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+               
+            </div>
+            <div class="col-lg-6">
+                <div class="footer__nav">
+                    <ul>
+                        <li><a href="/Index">Homepage</a></li>
+                        <li><a href="/Register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
