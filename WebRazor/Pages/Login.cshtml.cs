@@ -53,7 +53,8 @@ namespace WebRazor.Pages
 
             if (account.Role == 1)// role employee
             {
-                account.Employee = context.Employees.FirstOrDefault(u => u.EmployeeId.Equals(account.EmployeeId));
+                account.Employee = context.Employees.Include(e => e.Department).FirstOrDefault(u => u.EmployeeId.Equals(account.EmployeeId));
+                account.Employee.Department.Employees = null;
                 account.Employee.Accounts = null;
             }
             else
@@ -68,9 +69,8 @@ namespace WebRazor.Pages
             }
 
             string jsonAcount = JsonConvert.SerializeObject(account);
-
             HttpContext.Session.SetString("session", jsonAcount);
-            
+
             return RedirectToPage("/Index");
         }
     }
