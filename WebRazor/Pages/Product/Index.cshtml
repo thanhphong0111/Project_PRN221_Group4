@@ -7,23 +7,7 @@
             <div class="row">
         
                 <div class="col-lg-12 order-1 order-lg-2">
-            @*       <div class="product-show-option">
-                        <div class="row">
-                            <div class="col-lg-7 col-md-7">
-                                <div class="select-option">
-                                    <select class="sorting">
-                                        <option value="">Default Sorting</option>
-                                    </select>
-                                    <select class="p-show">
-                                        <option value="">Show:</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-5 text-right">
-                                <p>Show 01- 09 Of 36 Product</p>
-                            </div>
-                        </div>
-                    </div>*@
+
                     <div class="product-list">
                         <div class="row">
                         @foreach (var p in Model.Products)
@@ -31,14 +15,13 @@
                             <div class="col-lg-3 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <img src="img/products/product-1.jpg" alt="">
+                                        <a asp-page="./Product/Detail" asp-route-id="@p.ProductId"><img src="img/products/product-1.jpg" alt=""></a>
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            <li class="w-icon active"><a href="./Product/Details/@p.ProductId"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a asp-page="./Product/Details" asp-route-id="@p.ProductId">+ Quick View</a></li>
                                         </ul>
                                     </div>
                                     <div class="pi-text">
@@ -53,15 +36,8 @@
                                 </div>
                             </div>
                         }
-                        
                         </div>
                     </div>
-                    @*<div class="loading-more">
-                        <i class="icon_loading"></i>
-                        <a href="#">
-                            Loading More
-                        </a>
-                    </div>*@
                 </div>
             </div>
         </div>

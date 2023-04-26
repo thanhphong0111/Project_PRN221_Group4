@@ -26,8 +26,6 @@ namespace WebRazor.Pages.Product
 
         [FromQuery(Name = "id")]
         public string CatId { get; set; }
-
-
         public async Task OnGetAsync()
         {
             Categories = dbContext.Categories.ToList();

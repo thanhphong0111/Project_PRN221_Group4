@@ -18,9 +18,11 @@ namespace WebRazor.Pages.Product
 
         [BindProperty]
         public Models.Product Product { get; set; }
-
+        [BindProperty]
+        public List<Category> Categories { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Categories = dbContext.Categories.ToList();
             if (id == null)
             {
                 return NotFound();
@@ -51,6 +53,7 @@ namespace WebRazor.Pages.Product
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
+            Categories = dbContext.Categories.ToList();
             if (id == null)
             {
                 return NotFound();
