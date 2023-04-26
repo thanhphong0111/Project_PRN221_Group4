@@ -7,7 +7,8 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@ViewBag.Title</title>
+    <title>Fashi | Template</title>
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
@@ -65,10 +66,10 @@
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="col-lg-7 col-md-7">
-                            <form method="get" asp-page="./Index">
+                            <form method="get" asp-page="./Product">
                                 <div class="advanced-search">
                                     <div class="input-group">
-                                        <input type="text" placeholder="What do you need?">
+                                        <input name="search" value="@ViewData["search"]" type="text" placeholder="What do you need?">
                                         <button type="submit"><i class="ti-search"></i></button>
                                     </div>
                                 </div>
@@ -137,25 +138,21 @@
                 <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
-                        <span>All departments</span>
-                        <ul class="depart-hover">
-                            <li class="active"><a href="#">Women’s Clothing</a></li>
-                            <li><a href="#">Men’s Clothing</a></li>
-                            <li><a href="#">Underwear</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Brand Fashion</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                            <li><a href="#">Luxury Brands</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
+                        <span>All Category</span>
+                        <ul class="depart-hover" asp-for="categoryChoose">
+                            @foreach (var cate in Model.Categories)
+                            {
+                                <li ><a asp-route-id="@cate.CategoryId">@cate.CategoryName</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li class="active"><a href="~/Index">Home</a></li>
+                        <li><a href="~/Product">Shop</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>

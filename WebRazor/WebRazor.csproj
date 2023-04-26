@@ -26,6 +26,18 @@
     <None Include="wwwroot\js\jquery.zoom.min.js" />
     <None Include="wwwroot\js\main.js" />
     <None Include="wwwroot\js\owl.carousel.min.js" />
+    <None Include="wwwroot\Source\bootstrap-4.4.1-dist.zip" />
+    <None Include="wwwroot\Source\elegant_font.zip" />
+    <None Include="wwwroot\Source\font-awesome-4.7.0.zip" />
+    <None Include="wwwroot\Source\jquery-nice-select-1.1.0.zip" />
+    <None Include="wwwroot\Source\jquery-ui-1.12.1.zip" />
+    <None Include="wwwroot\Source\jQuery.countdown-master.zip" />
+    <None Include="wwwroot\Source\Magnific-Popup-master.zip" />
+    <None Include="wwwroot\Source\OwlCarousel2-2.3.4.zip" />
+    <None Include="wwwroot\Source\sass.zip" />
+    <None Include="wwwroot\Source\SlickNav-master.zip" />
+    <None Include="wwwroot\Source\themify-icons-font.zip" />
+    <None Include="wwwroot\Source\zoom-master.zip" />
   </ItemGroup>
 
   <ItemGroup>

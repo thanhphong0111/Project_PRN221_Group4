@@ -31,6 +31,8 @@ namespace WebRazor.Pages
         [FromQuery(Name = "id")]
         public string CatId { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string search { get; set; }
         public void OnGet()
         {
             Categories = dbContext.Categories.ToList();
