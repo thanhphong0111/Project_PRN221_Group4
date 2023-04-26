@@ -1,6 +1,12 @@
 ﻿@page
 @model WebRazor.Pages.Product.IndexModel
 @{
+    var pagingmodel = new WebRazor.Helpers.PagingModel()
+            {
+                currentPage = Model.currentPage,
+                countPages = Model.countPages,
+                generateUrl = (int? currentPage) => Url.Page("/Product/Index", new { currentPage = currentPage, search = ViewData["search"], categoryChoose = Model.categoryChoose })
+            };
 }
 <section class="product-shop spad">
         <div class="container">
@@ -15,18 +21,19 @@
                             <div class="col-lg-3 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a asp-page="./Product/Detail" asp-route-id="@p.ProductId"><img src="img/products/product-1.jpg" alt=""></a>
+                                        <a href="./Product/Details/@p.ProductId"><img src="img/products/product-1.jpg" alt=""></a>
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
                                             <li class="w-icon active"><a href="./Product/Details/@p.ProductId"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a asp-page="./Product/Details" asp-route-id="@p.ProductId">+ Quick View</a></li>
+                                            <li class="quick-view"><a href="./Product/Details/@p.ProductId">+ Quick View</a></li>
                                         </ul>
                                     </div>
                                     <div class="pi-text">
                                         <div class="catagory-name">Towel</div>
                                         <a href="#">
+                                            <h5>@p.ProductName</h5>
                                             <h5>@p.ProductName</h5>
                                         </a>
                                         <div class="product-price">
@@ -38,7 +45,13 @@
                         }
                         </div>
                     </div>
+
                 </div>
+            <div id="paging">
+                <div class="pagination">
+                    <partial name="_Paging" model="@pagingmodel" />
+                </div>
+            </div>
             </div>
         </div>
     </section>
