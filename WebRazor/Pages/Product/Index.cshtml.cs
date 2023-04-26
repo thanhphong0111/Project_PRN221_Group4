@@ -35,8 +35,7 @@ namespace WebRazor.Pages.Product
         public async Task OnGetAsync()
         {
             Categories = dbContext.Categories.ToList();
-            string search = "";
-            int totalProduct = getTotalProducts(search);
+            int totalProduct = getTotalProducts();
             var products = dbContext.Products;
             countPages = (int)Math.Ceiling((double)totalProduct / pageSize);
             if (currentPage < 1)
@@ -60,42 +59,30 @@ namespace WebRazor.Pages.Product
         }
         public async Task OnPostAsync()
         {
-            string search = Request.Form["search"];
-            int totalProduct = getTotalProducts(search);
-            ViewData["search"] = search;
+            int totalProduct = getTotalProducts();
             Categories = dbContext.Categories.ToList();
 
             var products = dbContext.Products;
-            if (!string.IsNullOrEmpty(search))
-            {
-                Products = await (from a in dbContext.Products select a).Where(a => a.ProductName == search).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
-            else if (CatId != null)
+
+            if (CatId != null)
             {
                 Products = await (from p in dbContext.Products select p).Where(p => p.CategoryId == int.Parse(CatId))
                      .Skip((currentPage - 1) * pageSize).Take(pageSize)
                      .ToListAsync();
             }
-            else if (!string.IsNullOrEmpty(search) && CatId != null)
-            {
-                Products = await (from p in dbContext.Products select p).Where(p => p.CategoryId == categoryChoose && p.ProductName.Contains(search))
-                    .Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
-            }
+
             else
             {
                 Products = await (from a in dbContext.Products orderby a.ProductId ascending select a).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             }
 
         }
-        private int getTotalProducts(string? search)
+        private int getTotalProducts()
         {
             var list = (from p in dbContext.Products select p).ToList();
 
-            if (!String.IsNullOrEmpty(search))
-            {
-                return list.Where(p => p.ProductName.ToLower().Contains(search.ToLower())).ToList().Count;
-            }
-            else if (CatId != null)
+
+            if (CatId != null)
             {
                 return list.Where(p => p.CategoryId == int.Parse(CatId)).ToList().Count;
             }
