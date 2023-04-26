@@ -68,11 +68,11 @@ namespace WebRazor.Pages.Product
             var products = dbContext.Products;
             if (!string.IsNullOrEmpty(search))
             {
-                Products = await (from a in dbContext.Products orderby a.ProductId ascending select a).Where(a => a.ProductName.Contains(search)).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
+                Products = await (from a in dbContext.Products select a).Where(a => a.ProductName == search).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             }
             else if (CatId != null)
             {
-                Products = await (from p in dbContext.Products select p).Where(p => p.CategoryId == categoryChoose)
+                Products = await (from p in dbContext.Products select p).Where(p => p.CategoryId == int.Parse(CatId))
                      .Skip((currentPage - 1) * pageSize).Take(pageSize)
                      .ToListAsync();
             }
@@ -83,7 +83,7 @@ namespace WebRazor.Pages.Product
             }
             else
             {
-                Products = await products.ToListAsync();
+                Products = await (from a in dbContext.Products orderby a.ProductId ascending select a).Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             }
 
         }
@@ -95,9 +95,9 @@ namespace WebRazor.Pages.Product
             {
                 return list.Where(p => p.ProductName.ToLower().Contains(search.ToLower())).ToList().Count;
             }
-            else if (categoryChoose > 0)
+            else if (CatId != null)
             {
-                return list.Where(p => p.CategoryId == categoryChoose).ToList().Count;
+                return list.Where(p => p.CategoryId == int.Parse(CatId)).ToList().Count;
             }
             else
             {

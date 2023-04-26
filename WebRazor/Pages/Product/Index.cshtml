@@ -5,7 +5,7 @@
             {
                 currentPage = Model.currentPage,
                 countPages = Model.countPages,
-                generateUrl = (int? currentPage) => Url.Page("/Product/Index", new { currentPage = currentPage, search = ViewData["search"], categoryChoose = Model.categoryChoose })
+                generateUrl = (int? currentPage) => Url.Page("/Product/Index", new { currentPage = currentPage, search = ViewData["search"], category = Model.CatId })
             };
 }
 <section class="product-shop spad">
@@ -33,7 +33,6 @@
                                     <div class="pi-text">
                                         <div class="catagory-name">Towel</div>
                                         <a href="#">
-                                            <h5>@p.ProductName</h5>
                                             <h5>@p.ProductName</h5>
                                         </a>
                                         <div class="product-price">
