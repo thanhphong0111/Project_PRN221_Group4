@@ -33,17 +33,27 @@
         <div class="header-top">
             <div class="container">
                 <div class="ht-left">
-                    <div class="mail-service">
-                        <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
-                    </div>
+                    @if (Context.Session.GetString("session") != null)
+                    {
+                        <div class="mail-service">
+                            <i class=" fa fa-envelope"></i>
+                            @ViewData["Email"]
+                        </div>
+                    }
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i>
                         +65 11.188.888
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="./Login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    @if (Context.Session.GetString("session") != null)
+                    {
+                        <a href="./Logout" class="login-panel"><i class="fa fa-user"></i>Logout</a>
+                        <a href="./Profile" class="login-panel"><i class="fa fa-user"></i>Profile</a>
+                    }else{
+                        <a href="./Login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                        <a href="./Register" class="login-panel"><i class="fa fa-user"></i>SignUp</a>
+                    }
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
